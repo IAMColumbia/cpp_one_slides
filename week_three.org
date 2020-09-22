@@ -1,0 +1,53 @@
+* Quote of the week
+#+BEGIN_QUOTE
+give a man a program, frustrate him for a day.
+Teach a man to program, frustrate him for a lifetime.”
+― Waseem Latif
+#+END_QUOTE
+
+* Data what?
+Data structures are what we use to describe the various ways we can structure our data to make programming tasks easier.
+We have already been using a data structures in our code and havent even realized it! Arrays are a kind of data structure but they dont cover all of our bases
+
+#+BEGIN_SRC C
+int myInts[5] = {1, 2, 3, 4, 5};
+int first = myInts[0];
+#+END_SRC
+
+* Array Deep Dive
+An array is, by definitio, fixed size contiguous memory. This makes arrays very good at random access. Random access means that the data structure doesnt restrict where
+you can access data from it. We can just as easily get the head by specifing index *0* or we can get the element with index *n* as long as *n* <= the length of the array.
+C does not check against out of bounds errors on arrays, it is up to the programmer to make sure that they are not going past the end or the beginning of an array.
+
+#+BEGIN_SRC C
+imy myInts[3] = {1, 2, 3};
+//this will return garbage but not throw an error
+int invalid = myInts[100];
+#+END_SRC
+
+* Array Deep Dive P2
+All we have covered thus far is arrays that are local to the functions. That is only so useful. so we need to cover how do we pass arrays *to* functions.
+
+you cannot pass arrays directly to functions the way we would in c#. This means pointers.
+
+#+BEGIN_SRC C
+//this is the correct
+void foo(int * myInts, const size_t len) {
+    //do stuff with ints
+}
+#+END_SRC
+
+* Structs to the Rescue
+You can also create a custom array wrapper so you can cut down on function arguments. Personally i like functions with as few arguments as possible to keep A) my code clean
+and B) code readable.
+
+#+BEGIN_SRC C
+typedef struct {
+    int * data;
+    size_t len;
+} Array;
+
+void foo(Array * arry) {
+   
+}
+#+END_SRC
