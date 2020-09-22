@@ -1,6 +1,6 @@
 * Quote of the week
 #+BEGIN_QUOTE
-give a man a program, frustrate him for a day.
+"give a man a program, frustrate him for a day.
 Teach a man to program, frustrate him for a lifetime.”
 ― Waseem Latif
 #+END_QUOTE
@@ -51,3 +51,46 @@ void foo(Array * arry) {
    
 }
 #+END_SRC
+
+* Unions
+Unions in C are a very interesting data structure, they can have multiple fields but can only have one field have a value at any one time. In mathmatics these are known as descriminated unions which are a type of set that has many possible values but only one is valid at a time.
+
+#+BEGIN_SRC C
+typedef union {
+    int i;
+    float f;
+    char str[20];
+} Data;
+
+Data d;
+d.i = 10;
+d.f = 1.p;
+strcpy(d.str, "Hello World");
+#+END_SRC
+
+* Strings
+most of the string goodies are in the *string.h* header.
+
+#+BEGIN_SRC C
+#include <string.h>
+#+END_SRC
+
+** copy a string
+#+BEGIN_SRC C
+char str1[]="Hello World";
+char str2[40];
+//first arg is destination, second is source
+//kinda backwards
+strcpy(str2, str1);
+printf("%s", str2);
+#+END_SRC
+
+** length of a string
+
+#+BEGIN_SRC C
+char str1[] = "Hello World";
+size_t len = strlen(str1);
+printf("%ld", len);
+#+END_SRC
+
+
