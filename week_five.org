@@ -1,0 +1,30 @@
+* Quote of the Week
+#+BEGIN_QUOTE
+A good programmer is someone who always looks both ways before crossing a one-way street.
+- Doug Linde
+#+END_QUOTE
+
+* A note on consts
+We have covered that passing something to a method as 'const' marks it as immutable for the compiler. But how does this work for pointers? Since passing a variable by value means that side effects are local to the current function scope, marking them as const has diminishing returns. When we pass a parameter as a pointer, the side effect of changing it persists outside of that function call. This means marking pointer parameters as const when we dont want to allow changing either what they point to or where they point is very valuable.
+
+* Constant Pointers
+to mark a pointer as constant means you cannot change what it points to
+#+BEGIN_SRC C
+int *const ptr;
+#+END_SRC
+
+* Pointers to constants
+to mark what the pointer points to as constant
+#+BEGIN_SRC C
+int const * ptr;
+#+END_SRC
+
+* And for poops and giggles
+If you want the pointer to be const and point to a const value
+#+BEGIN_SRC C
+const int * const;
+#+END_SRC
+
+* An easy trick to remember
+One way to remember the syntax (according to Bjarne Stroustrup) is the spiral rule-
+The rule says, start from the name of the variable and move clockwise to the next pointer or type. Repeat until expression ends.

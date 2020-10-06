@@ -1,0 +1,23 @@
+* Week Four
+#+BEGIN_QUOTE
+“Make it work, make it right, make it fast.” – Kent Beck
+#+END_QUOTE
+
+* Processes
+In C#, Java, Python and other "high level" languages, we dont have to think about memory as much. Every C# programmer should know when allocations are happening and why, but the part that C# makes simple is the de-allocation of that memory. When we run a program, the operating system spawns a process. The operating system tracks this process with a process id or PID for short. The operating system gives each process a set amount of Stack memory and a certain amount of addressable memory for the stack. This is where 32bit and 64 bit systems become important. Processes on 32 bit systems can only address 4 GB of memory at a time. 64 bit systems can address memory in the dozens of terabytes.
+
+* Memory (Physical)
+When we talk about computer memory, we are talking about RAM or Random Access Memory. These are the physical chips attached to your motherboard. It is "volatile" storage. Unlike a hard drive, when RAM loses power, it flushes its data. Volatile storage is much faster than your hard drive, even with the advent of Solid State drives. This is where the operating system stores data for current processes.
+
+* Memory (Physical P2)
+There are 2 other places where your program's memory "could" be stored. The first is in the CPU cache. When you buy a new CPU and see words like L1 or L2 cache, they are talking about the size of the "on chip" memory for the processes that are currently executing on the CPU. This is the fastest memory available to your program. there is a 'register' keyword in C that was intended to put your variable on one of the CPU registers, but it is more of a suggestion and is often if not always ignored by the compiler. This memory is jealously guarded by the CPU and memory is short lived and small. it is generally measured in megabytes. The other area your memory might be is known as Swap Space. this is either a partition or file on your hard drive that holds memory for hibernating processes (when your computer hibernates) or when your computer runs out of RAM. Low RAM computers (4 GB or less) use this space to make sure that they can run heavier and heavier programs we deal with every day.
+
+* Memory C
+There are 4 methods we can use to allocate, modify and free memory in C, They all live in 'memory.h'
+
+#+BEGIN_SRC C
+void free(void *); //frees heap allocated memory
+void * malloc(size_t);
+void * calloc(size_t, size_t);
+void * realloc(void *, size_t);
+#+END_SRC

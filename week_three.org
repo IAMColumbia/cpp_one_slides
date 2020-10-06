@@ -1,6 +1,6 @@
 * Quote of the week
 #+BEGIN_QUOTE
-"give a man a program, frustrate him for a day.
+give a man a program, frustrate him for a day.
 Teach a man to program, frustrate him for a lifetime.”
 ― Waseem Latif
 #+END_QUOTE
@@ -48,7 +48,8 @@ typedef struct {
 } Array;
 
 void foo(Array * arry) {
-   
+    arry->data;
+    arry->len;
 }
 #+END_SRC
 
@@ -64,7 +65,7 @@ typedef union {
 
 Data d;
 d.i = 10;
-d.f = 1.p;
+d.f = 1.0;
 strcpy(d.str, "Hello World");
 #+END_SRC
 
@@ -92,5 +93,4 @@ char str1[] = "Hello World";
 size_t len = strlen(str1);
 printf("%ld", len);
 #+END_SRC
-
 
